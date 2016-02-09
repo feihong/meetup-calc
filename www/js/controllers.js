@@ -10,3 +10,9 @@ angular.module('calc')
   $scope.orderItems = []
   $scope.results = {}
 })
+
+.controller('OrderItemsCtrl', function($scope) {
+})
+
+.controller('ResultsCtrl', function($scope) {
+})

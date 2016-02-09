@@ -30,6 +30,16 @@ angular.module('calc', ['ionic'])
       templateUrl: 'views/main.html',
       controller: 'MainCtrl'
     })
+    .state('order-items', {
+      url: '/order-items',
+      templateUrl: 'views/order-items.html',
+      controller: 'OrderItemsCtrl'
+    })
+    .state('results', {
+      url: '/results',
+      templateUrl: 'views/results.html',
+      controller: 'ResultsCtrl'
+    })
 
   $urlRouterProvider.otherwise('/main')
 })

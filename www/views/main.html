@@ -1,4 +1,4 @@
-<ion-view>
+<ion-view hide-nav-bar='true'>
   <ion-content>
     <ion-list>
       <ion-input class='item item-input'>
@@ -17,11 +17,15 @@
         <ion-label>Service fee</ion-label>
         <input ng-model='serviceFee' type='text'>
       </ion-input>
-      <ion-item>
-        Order items
+      <ion-item class='item-icon-right' href='#/order-items'>
+        <h2>Order items</h2>
+        <p>Item details go here</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
-      <ion-item>
-        Results
+      <ion-item class='item-icon-right' href='#/results'>
+        <h2>Results</h2>
+        <p>Result details go here</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>
   </ion-content>
