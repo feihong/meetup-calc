@@ -11,8 +11,19 @@ angular.module('calc')
   $scope.results = {}
 })
 
-.controller('OrderItemsCtrl', function($scope) {
+.controller('OrderItemsCtrl', function($scope, $ionicHistory) {
+  $scope.cancel = function() {
+    $ionicHistory.goBack()
+  }
+
+  $scope.done = function() {
+    $ionicHistory.goBack()
+  }
 })
 
-.controller('ResultsCtrl', function($scope) {
+.controller('ResultsCtrl', function($scope, $ionicHistory) {
+  $scope.back = function() {
+
+    $ionicHistory.goBack()
+  }
 })
