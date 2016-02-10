@@ -19,7 +19,9 @@
       </ion-input>
       <ion-item class='item-icon-right' href='#/order-items'>
         <h2>Order items</h2>
-        <p>Item details go here</p>
+        <p ng-repeat='item in orderItems'>
+          {{item.name}} - {{item.price}}
+        </p>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
       <ion-item class='item-icon-right' href='#/results'>
