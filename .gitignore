@@ -4,3 +4,5 @@ platforms/
 plugins/
 ionic.app.css
 ionic.app.min.css
+bundle.js
+*.map
