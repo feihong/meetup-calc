@@ -19,9 +19,11 @@
       </ion-input>
       <ion-item class='item-icon-right' href='#/order-items'>
         <h2>Order items</h2>
-        <p ng-repeat='item in orderItems'>
-          {{item.name}} - {{item.price}}
-        </p>
+        <ul>
+          <li ng-repeat='line in itemLines track by $index'>
+            {{line}}
+          </li>
+        </ul>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
       <ion-item class='item-icon-right' href='#/results'>

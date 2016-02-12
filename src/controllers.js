@@ -6,14 +6,18 @@ appModule.controller('MainCtrl', function($scope, OrderItems) {
   $scope.taxPercent = 9.75
   $scope.tipPercent = 20.0
   $scope.serviceFee = 0
-  $scope.orderItems = OrderItems.asObjects()
+  $scope.itemLines = OrderItems.get().split('\n')
   $scope.results = {}
+
+  $scope.$on('$ionicView.enter', function() {
+    console.log('enter');
+  })
 })
 
-.controller('OrderItemsCtrl', function($scope, $ionicHistory) {
-  $scope.cancel = function() {
-    $ionicHistory.goBack()
-  }
+.controller('OrderItemsCtrl', function($scope, $ionicHistory, OrderItems) {
+  $scope.text = OrderItems.get()
+
+  $scope.cancel = $ionicHistory.goBack
 
   $scope.done = function() {
     $ionicHistory.goBack()
@@ -21,8 +25,5 @@ appModule.controller('MainCtrl', function($scope, OrderItems) {
 })
 
 .controller('ResultsCtrl', function($scope, $ionicHistory) {
-  $scope.back = function() {
-
-    $ionicHistory.goBack()
-  }
+  $scope.back = $ionicHistory.goBack
 })
