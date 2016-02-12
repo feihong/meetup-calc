@@ -1,8 +1,9 @@
-import 'ionic-sdk/release/js/ionic.bundle'
+import appModule from './appmodule'
+import './controllers'
+import './services'
 
-angular.module('app', ['ionic'])
 
-.run(function($ionicPlatform) {
+appModule.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -20,7 +21,7 @@ angular.module('app', ['ionic'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+appModule.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('main', {
       url: '/main',
@@ -39,51 +40,4 @@ angular.module('app', ['ionic'])
     })
 
   $urlRouterProvider.otherwise('/main')
-})
-
-.controller('MainCtrl', function($scope, OrderItems) {
-  $scope.attendeeCount = 6
-  $scope.taxPercent = 9.75
-  $scope.tipPercent = 20.0
-  $scope.serviceFee = 0
-  $scope.orderItems = OrderItems.asObjects()
-  $scope.results = {}
-})
-
-.controller('OrderItemsCtrl', function($scope, $ionicHistory) {
-  $scope.cancel = function() {
-    $ionicHistory.goBack()
-  }
-
-  $scope.done = function() {
-    $ionicHistory.goBack()
-  }
-})
-
-.controller('ResultsCtrl', function($scope, $ionicHistory) {
-  $scope.back = function() {
-
-    $ionicHistory.goBack()
-  }
-})
-
-.factory('OrderItems', function() {
-  var text = ''
-  var items = [
-    {name: 'Turkey', price: 43.5},
-    {name: 'Crackers', price: 0.30},
-    {name: 'Deep dish pizza', price: 25.6},
-  ]
-
-  return {
-    asObjects: function() {
-      return items
-    },
-    set: function(text) {
-
-    },
-    get: function() {
-      return text
-    }
-  }
 })
