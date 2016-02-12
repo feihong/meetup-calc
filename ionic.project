@@ -2,6 +2,7 @@
   "name": "meetup-calc",
   "app_id": "a14add79",
   "gulpStartupTasks": [
+    "webpack",
     "sass",
     "watch"
   ],

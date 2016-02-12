@@ -19,7 +19,7 @@ $dark:                            #444 !default;
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
+@import "../node_modules/ionic-sdk/scss/ionic";
 
 .platform-ios.platform-cordova:not(.fullscreen) ion-view.main {
   margin-top: 20px;

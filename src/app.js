@@ -1,9 +1,6 @@
-// Ionic Starter App
+import 'ionic-sdk/release/js/ionic.bundle'
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-angular.module('calc', ['ionic'])
+angular.module('app', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -42,4 +39,51 @@ angular.module('calc', ['ionic'])
     })
 
   $urlRouterProvider.otherwise('/main')
+})
+
+.controller('MainCtrl', function($scope, OrderItems) {
+  $scope.attendeeCount = 6
+  $scope.taxPercent = 9.75
+  $scope.tipPercent = 20.0
+  $scope.serviceFee = 0
+  $scope.orderItems = OrderItems.asObjects()
+  $scope.results = {}
+})
+
+.controller('OrderItemsCtrl', function($scope, $ionicHistory) {
+  $scope.cancel = function() {
+    $ionicHistory.goBack()
+  }
+
+  $scope.done = function() {
+    $ionicHistory.goBack()
+  }
+})
+
+.controller('ResultsCtrl', function($scope, $ionicHistory) {
+  $scope.back = function() {
+
+    $ionicHistory.goBack()
+  }
+})
+
+.factory('OrderItems', function() {
+  var text = ''
+  var items = [
+    {name: 'Turkey', price: 43.5},
+    {name: 'Crackers', price: 0.30},
+    {name: 'Deep dish pizza', price: 25.6},
+  ]
+
+  return {
+    asObjects: function() {
+      return items
+    },
+    set: function(text) {
+
+    },
+    get: function() {
+      return text
+    }
+  }
 })
