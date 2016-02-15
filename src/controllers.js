@@ -9,9 +9,9 @@ appModule.controller('MainCtrl', function($scope, OrderItems) {
   $scope.itemLines = OrderItems.get().split('\n')
   $scope.results = {}
 
-  $scope.$on('$ionicView.enter', function() {
-    console.log('enter');
-  })
+  // $scope.$on('$ionicView.enter', function() {
+  //   console.log('enter');
+  // })
 })
 
 .controller('OrderItemsCtrl', function($scope, $ionicHistory, OrderItems) {
@@ -19,7 +19,8 @@ appModule.controller('MainCtrl', function($scope, OrderItems) {
 
   $scope.cancel = $ionicHistory.goBack
 
-  $scope.done = function() {
+  $scope.done = () => {
+    console.log($scope.text);
     $ionicHistory.goBack()
   }
 })
