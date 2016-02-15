@@ -2,25 +2,33 @@ import appModule from './appmodule'
 
 
 appModule.controller('MainCtrl', function($scope, OrderItems) {
-  $scope.attendeeCount = 6
-  $scope.taxPercent = 9.75
-  $scope.tipPercent = 20.0
-  $scope.serviceFee = 0
-  $scope.itemLines = OrderItems.get().split('\n')
-  $scope.results = {}
+  $scope.form = {
+    attendeeCount: 6,
+    taxPercent: 9.75,
+    tipPercent: 20.0,
+    serviceFee: 0,
+    itemLines: OrderItems.get().split('\n'),
+    results: {}
+  }
 
-  // $scope.$on('$ionicView.enter', function() {
-  //   console.log('enter');
-  // })
+  OrderItems.onChange((value) => {
+    $scope.form.itemLines = value.split('\n')
+  })
 })
 
 .controller('OrderItemsCtrl', function($scope, $ionicHistory, OrderItems) {
-  $scope.text = OrderItems.get()
+  $scope.form = {
+    text: OrderItems.get()
+  }
+
+  $scope.$on('$ionicView.enter', function() {
+    $scope.form.text = OrderItems.get()
+  })
 
   $scope.cancel = $ionicHistory.goBack
 
   $scope.done = () => {
-    console.log($scope.text);
+    OrderItems.set($scope.form.text)
     $ionicHistory.goBack()
   }
 })

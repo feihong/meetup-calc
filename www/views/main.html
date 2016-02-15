@@ -3,24 +3,24 @@
     <ion-list>
       <ion-input class='item item-input'>
         <ion-label>Number of attendees</ion-label>
-        <input ng-model='attendeeCount' type='tel'>
+        <input ng-model='form.attendeeCount' type='tel'>
       </ion-input>
       <ion-input class='item item-input'>
         <ion-label>Tax percentage</ion-label>
-        <input ng-model='taxPercent' type='number' step='0.01'>
+        <input ng-model='form.taxPercent' type='number' step='0.01'>
       </ion-input>
       <ion-input class='item item-input'>
         <ion-label>Tip percentage</ion-label>
-        <input ng-model='tipPercent' type='number' step='0.01'>
+        <input ng-model='form.tipPercent' type='number' step='0.01'>
       </ion-input>
       <ion-input class='item item-input'>
         <ion-label>Service fee</ion-label>
-        <input ng-model='serviceFee' type='tel'>
+        <input ng-model='form.serviceFee' type='tel'>
       </ion-input>
       <ion-item class='item-icon-right' href='#/order-items'>
         <h2>Order items</h2>
         <ul>
-          <li ng-repeat='line in itemLines track by $index'>
+          <li ng-repeat='line in form.itemLines track by $index'>
             {{line}}
           </li>
         </ul>
