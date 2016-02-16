@@ -32,6 +32,10 @@ class OrderItems {
     return this.text
   }
 
+  getAsMap() {
+    return parse(this.text)
+  }
+
   onChange(fn) {
     this.handler = fn
   }

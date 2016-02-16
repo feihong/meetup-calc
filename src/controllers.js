@@ -1,4 +1,5 @@
 import appModule from './appmodule'
+import calculateResults from './calculate'
 
 
 appModule.controller('MainCtrl', function($scope, OrderItems) {
@@ -8,12 +9,22 @@ appModule.controller('MainCtrl', function($scope, OrderItems) {
     tipPercent: 20.0,
     serviceFee: 0,
     itemLines: OrderItems.get().split('\n'),
-    results: {}
+    results: [],
+  }
+
+  $scope.updateResults = () => {
+    let values = calculateResults(OrderItems.getAsMap())
+    $scope.form.results = [
+      `Each attendee pays $${values.individual_amount} to the host.`,
+    ]
   }
 
   OrderItems.onChange((value) => {
     $scope.form.itemLines = value.split('\n')
+    $scope.updateResults()
   })
+
+  $scope.updateResults()
 })
 
 .controller('OrderItemsCtrl', function($scope, $ionicHistory, OrderItems) {

@@ -3,7 +3,8 @@
   "version": "1.1.1",
   "description": "An Ionic project",
   "dependencies": {
-    "ionic-sdk": "^1.2.4"
+    "ionic-sdk": "^1.2.4",
+    "wu": "^2.1.0"
   },
   "devDependencies": {
     "babel-core": "^6.5.1",

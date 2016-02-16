@@ -28,7 +28,11 @@
       </ion-item>
       <ion-item class='item-icon-right' href='#/results'>
         <h2>Results</h2>
-        <p>Result details go here</p>
+        <ul>
+          <li ng-repeat='result in form.results track by $index'>
+            {{result}}
+          </li>
+        </ul>
         <i class="icon ion-chevron-right icon-accessory"></i>
       </ion-item>
     </ion-list>
